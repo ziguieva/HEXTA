@@ -66,3 +66,60 @@ jobs:
       - name: Build frontend
         working-directory: frontend
         run: npm run build
+
+  postgres-integration:
+    name: PostgreSQL Integration Tests
+    runs-on: ubuntu-24.04
+
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: bankkey
+          POSTGRES_USER: bankkey
+          POSTGRES_PASSWORD: ci_test_password_only
+        ports:
+          - 5433:5432
+        options: >-
+          --health-cmd "pg_isready -U bankkey -d bankkey"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      BANKKEY_DB_PASSWORD: ci_test_password_only
+      BANKKEY_JWT_SECRET: ci_only_jwt_signing_secret_32_characters_minimum_2026
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+          cache: pip
+          cache-dependency-path: backend/requirements.txt
+
+      - name: Install Python dependencies
+        working-directory: backend
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      - name: Apply Alembic migrations
+        working-directory: backend
+        run: python -m alembic upgrade head
+
+      - name: Verify database revision
+        working-directory: backend
+        run: python -m alembic current
+
+      - name: Run PostgreSQL integration smoke tests
+        working-directory: backend
+        run: |
+          python -m pytest \
+            tests/test_postgresql_integration.py \
+            tests/test_ceremony_actions_api.py \
+            tests/test_audit_api.py \
+            -v --tb=short
