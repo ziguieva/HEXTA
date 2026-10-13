@@ -1,0 +1,23 @@
+.bk-action-panel{margin-bottom:24px;padding:25px;border:1px solid #2d4557;border-radius:13px;background:#111f31;color:#eaf5ff}
+.bk-action-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:21px}
+.bk-action-heading h3{margin:7px 0;font-size:18px}
+.bk-action-heading p,.bk-action-hint{color:#9eb2c9;font-size:12px;margin:8px 0}
+.bk-action-eyebrow{font-size:10px;font-weight:800;letter-spacing:1.3px;color:#5cd7c4}
+.bk-action-role{padding:8px 10px;border:1px solid #2f625e;border-radius:6px;color:#6bdac7;white-space:nowrap;font-size:10px;letter-spacing:1px}
+.bk-action-form{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.bk-action-form label{font-size:12px;font-weight:700}
+.bk-action-form select{min-width:220px;max-width:100%;background:#0e192a;border:1px solid #385169;color:#eaf5ff;border-radius:8px;padding:11px}
+.bk-action-panel button{display:inline-flex;align-items:center;gap:8px;border:1px solid #2e958a;border-radius:8px;padding:10px 13px;background:#15534d;color:#a0f9df;cursor:pointer;font-size:12px;font-weight:700}
+.bk-action-panel button:disabled{opacity:.4;cursor:not-allowed}
+.bk-action-queue{display:flex;flex-direction:column;gap:12px}
+.bk-action-queue-row{display:flex;justify-content:space-between;gap:16px;align-items:center;border-top:1px solid #2a4155;padding-top:15px}
+.bk-action-queue-row>div:first-child{display:flex;flex-direction:column;gap:6px;font-size:13px}
+.bk-action-queue-row small{color:#9ab0c8;font-size:10px;letter-spacing:1px}
+.bk-action-buttons{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bk-action-panel .bk-action-danger{background:#512c37;border-color:#814358;color:#ffb3bf}
+.bk-action-confirm{margin-top:15px;border:1px solid #536475;border-radius:10px;padding:16px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;font-size:12px}
+.bk-action-confirm span{color:#a2b7cd}
+.bk-action-panel .bk-action-cancel{background:transparent;border-color:#465a6e;color:#c3d2e2}
+.bk-action-error,.bk-action-success{margin-top:15px;padding:12px;border-radius:8px;font-size:12px}
+.bk-action-error{background:#502936;color:#ffc0ca}.bk-action-success{background:#12483e;color:#b1ffe4}
+@media(max-width:700px){.bk-action-heading,.bk-action-queue-row{flex-direction:column;align-items:flex-start}}

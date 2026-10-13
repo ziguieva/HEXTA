@@ -1,0 +1,22 @@
+.bk-audit-panel{background:#101e32;border:1px solid #2d4059;border-radius:14px;padding:26px;color:#dce8f6}
+.bk-audit-header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.bk-audit-header h2{font-size:22px;margin:8px 0}
+.bk-audit-header p,.bk-audit-note{font-size:12px;line-height:1.7;color:#93a9c1}
+.bk-audit-kicker{font-size:10px;letter-spacing:2px;color:#54d8c6;font-weight:800}
+.bk-audit-header button{display:flex;align-items:center;gap:8px;cursor:pointer;background:#153d3e;color:#79dfcd;border:1px solid #276a65;border-radius:8px;padding:12px 16px}
+.bk-audit-header button:disabled{opacity:.6;cursor:wait}
+.bk-audit-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:26px 0}
+.bk-audit-metrics>div{padding:20px;background:#17273d;border:1px solid #2b435f;border-radius:11px;display:flex;flex-direction:column;gap:14px}
+.bk-audit-metrics small{color:#8ea9c1;font-size:10px;letter-spacing:1px;font-weight:800}
+.bk-audit-metrics strong{display:flex;align-items:center;gap:8px;font-size:24px}
+.bk-audit-good{color:#61dfb9}.bk-audit-bad{color:#ff97a7}
+.bk-audit-error{background:#441f30;color:#ffb9c9;padding:16px;border-radius:8px;margin:14px 0}
+.bk-audit-note{border-left:3px solid #66d8c4;padding:10px 16px;background:#152b35}
+.bk-audit-title{display:flex;align-items:center;gap:10px;margin:22px 0 12px}.bk-audit-title h3{font-size:15px;margin:0}
+.bk-audit-search{box-sizing:border-box;background:#0d192b!important;border:1px solid #334761!important;border-radius:8px!important;padding:13px!important;color:#e6f1fb!important;width:100%;margin-bottom:12px}
+.bk-audit-scroll{overflow:auto}.bk-audit-table{border-collapse:collapse;width:100%;min-width:900px;text-align:left}
+.bk-audit-table th{font-size:10px;color:#8fa8bd;letter-spacing:1px;border-bottom:1px solid #395069;padding:14px 10px}
+.bk-audit-table td{padding:17px 10px;border-bottom:1px solid #243a53;font-size:11px;color:#cad9e9}
+.bk-audit-table td:nth-child(4) span{display:block;text-transform:uppercase;font-size:9px;color:#7c9db4}
+.bk-audit-table code{color:#80d6ce}.bk-audit-empty{padding:25px;text-align:center;color:#8ca3b9}
+@media(max-width:750px){.bk-audit-metrics{grid-template-columns:1fr}.bk-audit-header{align-items:flex-start;flex-direction:column}.bk-audit-panel{padding:16px}}

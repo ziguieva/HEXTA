@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: bankkey-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: bankkey
+      POSTGRES_USER: bankkey
+      POSTGRES_PASSWORD: ${BANKKEY_DB_PASSWORD:?Set BANKKEY_DB_PASSWORD}
+
+    ports:
+      - "127.0.0.1:5433:5432"
+
+    volumes:
+      - bankkey_postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U bankkey -d bankkey"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  bankkey_postgres_data:

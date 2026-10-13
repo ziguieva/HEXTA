@@ -1,0 +1,54 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Frontend
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Environment variables and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.p8
+*.jks
+*.keystore
+
+# HSM local configuration and storage
+softhsm2.conf
+*.tokens/
+tokens/
+hsm-tokens/
+.bankkey-hsm/
+
+# Local backups
+.bankkey-backups/
+*.bak
+*.backup
+*.orig
+
+# Databases and temporary files
+*.sqlite
+*.sqlite3
+*.db
+*.log
+*.tmp
+
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
