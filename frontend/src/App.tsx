@@ -25,10 +25,11 @@ import {
 
 import CeremonyActions from './components/CeremonyActions'
 import AuditCenter from './components/AuditCenter'
+import HsmOperationsCenter from './components/HsmOperationsCenter'
 import './App.css'
 
 
-type Page = 'overview' | 'keys' | 'ceremonies' | 'audit'
+type Page = 'overview' | 'keys' | 'ceremonies' | 'audit' | 'hsm'
 
 type Profile = {
   id: string
@@ -380,6 +381,7 @@ function App() {
     keys: 'Key Inventory',
     ceremonies: 'Key Ceremonies',
     audit: 'Audit Center',
+    hsm: 'HSM Operations Center',
   }
 
   const activeKeys = keys.filter(
@@ -430,6 +432,16 @@ function App() {
           <Shield size={18} />
           Key Ceremonies
           <small>{ceremonies.length}</small>
+        </button>
+
+        <button
+          className={`nav-item bk-nav-button ${
+            page === 'hsm' ? 'selected' : ''
+          }`}
+          onClick={() => setPage('hsm')}
+        >
+          <Server size={18} />
+          HSM Operations
         </button>
 
         <div className="nav-item disabled">
@@ -510,6 +522,16 @@ function App() {
             <div className="error" role="alert">
               {error}
             </div>
+          )}
+
+          {page === 'hsm' && (
+            <HsmOperationsCenter
+              hsm={hsm}
+              keys={keys}
+              ceremonies={ceremonies}
+              role={profile?.role || ''}
+              onNavigate={setPage}
+            />
           )}
 
           {page === 'audit' && token && <AuditCenter token={token} role={profile?.role || ''} />}
