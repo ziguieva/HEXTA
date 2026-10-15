@@ -88,6 +88,7 @@ jobs:
 
     env:
       BANKKEY_DB_PASSWORD: ci_test_password_only
+      BANKKEY_TEST_DATABASE: ci_ephemeral_only
       BANKKEY_JWT_SECRET: ci_only_jwt_signing_secret_32_characters_minimum_2026
 
     steps:
@@ -120,6 +121,7 @@ jobs:
         run: |
           python -m pytest \
             tests/test_postgresql_integration.py \
+            tests/test_ceremony_concurrency.py \
             tests/test_ceremony_actions_api.py \
             tests/test_audit_api.py \
             -v --tb=short
