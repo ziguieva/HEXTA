@@ -122,6 +122,7 @@ jobs:
           python -m pytest \
             tests/test_postgresql_integration.py \
             tests/test_ceremony_concurrency.py \
+            tests/test_audit_integrity.py \
             tests/test_ceremony_actions_api.py \
             tests/test_audit_api.py \
             -v --tb=short
